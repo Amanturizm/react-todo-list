@@ -25,3 +25,12 @@ input {
 .btn-add {
   padding: 2.5px 15px;
 }
+
+ul {
+  list-style: none;
+  width: 383px;
+}
+
+.completed-task {
+  text-decoration: line-through;
+}

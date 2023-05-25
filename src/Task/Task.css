@@ -1,0 +1,24 @@
+.task {
+  border: 1px solid #222;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.task button {
+  border: none;
+  cursor: pointer;
+  height: 20px;
+}
+
+.task div {
+  display: flex;
+  gap: 10px;
+}
+
+.task button img {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+}
