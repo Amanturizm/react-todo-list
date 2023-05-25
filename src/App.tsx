@@ -29,6 +29,18 @@ const App = () => {
     }
   };
 
+  const removeTask = (index: number): void => {
+    const tasksCopy: ITask[] = [...tasks];
+    tasksCopy.splice(index, 1);
+    setTasks(tasksCopy);
+  };
+
+  const taskExecution = (index: number): void => {
+    const tasksCopy: ITask[] = [...tasks];
+    tasksCopy[index].taskClassName = 'completed-task';
+    setTasks(tasksCopy);
+  };
+
   return (
     <div className="App">
       <form>
@@ -36,18 +48,20 @@ const App = () => {
           <button onClick={addTask} type="button" className="btn-add">Add</button>
       </form>
 
-      <ul>
+        <ul>
           {
             tasks.map((task: ITask, index: number) => {
               return <Task
                 key={task.id}
                 addClass={task.taskClassName}
+                addClassOnClickHandler={() => taskExecution(index)}
+                onClickHandler={() => removeTask(index)}
                 taskName={task.task}/>
             })
           }
         </ul>
     </div>
   );
-}
+};
 
 export default App;

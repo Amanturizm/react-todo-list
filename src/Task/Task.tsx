@@ -6,6 +6,8 @@ import complete from '../complete.png';
 interface ITaskProps extends React.PropsWithChildren {
   taskName: string;
   addClass: string;
+  onClickHandler: React.MouseEventHandler;
+  addClassOnClickHandler: React.MouseEventHandler;
 };
 
 const Task: React.FC<ITaskProps> = props => {
@@ -13,10 +15,10 @@ const Task: React.FC<ITaskProps> = props => {
     <li className={`task ${props.addClass}`}>
       <h4>{props.taskName}</h4>
       <div>
-        <button type="button">
+        <button onClick={props.addClassOnClickHandler} type="button">
           <img src={complete} alt="complete"/>
         </button>
-        <button type="button">
+        <button onClick={props.onClickHandler} type="button">
           <img src={bucket} alt="bucket"/>
         </button>
       </div>
