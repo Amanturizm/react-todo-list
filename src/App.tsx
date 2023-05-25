@@ -17,11 +17,23 @@ const App = () => {
   ];
   const [tasks, setTasks] = useState<ITask[]>(defaultTasks);
 
+  const addTask = (): void => {
+    const inputValue: string = document.querySelector('input')!.value;
+    if (inputValue.length !== 0) {
+      const tasksCopy: ITask[] = [...tasks];
+      tasksCopy.unshift({task: inputValue,  taskClassName: '', id: nanoid()});
+      console.log(tasksCopy);
+      setTasks(tasksCopy);
+    } else {
+      alert('Задача не может быть пустой');
+    }
+  };
+
   return (
     <div className="App">
       <form>
           <input placeholder="Add new task" type="text"/>
-          <button type="button" className="btn-add">Add</button>
+          <button onClick={addTask} type="button" className="btn-add">Add</button>
       </form>
 
       <ul>
